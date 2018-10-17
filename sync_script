@@ -1,0 +1,18 @@
+
+#!/bin/bash
+# Github Branch
+
+# set the work directory to script's directory
+cd "$(dirname "$0")"
+
+time=`date '+%Y-%m-%d %H:%M:%S'`;
+
+git checkout master
+
+wget --output-document="index.html" -r https://productus-airplake.webflow.io 
+
+git add .
+
+git commit -m "Updated By: $time"
+
+git push
